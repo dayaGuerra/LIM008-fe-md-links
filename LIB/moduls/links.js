@@ -1,5 +1,5 @@
 
-const path = require('path');
+// const path = require('path');
 const fs = require('fs');
 
 // export const rutaRelativa = (pathrel) => {
@@ -8,23 +8,20 @@ const fs = require('fs');
 // };
 
 
+const arrayDeArchivos = (route) => {
+  let newarray = [];
+  if (fs.lstatSync(route).isFile() === true) {
+    newarray.push(route);
+  } else {
+    const arrayPath = fs.readdirSync(route);
 
- const arrayDeArchivos = (route) => {
-    let newarray = [];
-    if (fs.lstatSync(route).isFile() === true) {
-        
-     newarray.push(route);
-    } else {
-        let arrayPath = fs.readdirSync(route);
-       
-        arrayPath.forEach((element) => {
-     
-        const arrayderutasdearchivos = arrayDeArchivos(`${route}\\${element}`);
-       
-        newarray = newarray.concat(arrayderutasdearchivos);
-     });
-    }
-    return newarray;
-   }; 
+    arrayPath.forEach((element) => {
+      const arrayderutasdearchivos = arrayDeArchivos(`${route}\\${element}`);
 
-   console.log(arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba'));
+      newarray = newarray.concat(arrayderutasdearchivos);
+    });
+  }
+  return newarray;
+};
+
+console.log(arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba'));

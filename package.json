@@ -10,7 +10,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "eslint": "eslint --ext .js src/ test/",
+    "eslint": "eslint --ext .js LIB",
     "test": "jest --coverage"
   },
   "devDependencies": {
@@ -21,8 +21,10 @@
     "@babel/preset-env": "^7.3.4",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^24.1.0",
-    "eslint": "^5.10.0",
-    "eslint-plugin-jest": "^22.1.2",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jest": "^22.3.0",
     "jest": "^24.1.0",
     "nodemon": "^1.18.10",
     "regenerator-runtime": "^0.13.1"
