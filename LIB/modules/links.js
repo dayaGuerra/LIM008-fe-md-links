@@ -1,14 +1,14 @@
 
-// const path = require('path');
+const path = require('path');
 const fs = require('fs');
 
-// export const rutaRelativa = (pathrel) => {
-//     const absolut = path.resolve(pathrel);
-//     return absolut;
-// };
+export const rutaRelativa = (pathrel) => {
+  const absolut = path.resolve(pathrel);
+  return absolut;
+};
 
 
-const arrayDeArchivos = (route) => {
+export const arrayDeArchivos = (route) => {
   let newarray = [];
   if (fs.lstatSync(route).isFile() === true) {
     newarray.push(route);
@@ -24,4 +24,4 @@ const arrayDeArchivos = (route) => {
   return newarray;
 };
 
-console.log(arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba'));
+console.log(arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba\\documento1.txt'));
