@@ -15,13 +15,33 @@ export const arrayDeArchivos = (route) => {
   } else {
     const arrayPath = fs.readdirSync(route);
 
-    arrayPath.forEach((element) => {
-      const arrayderutasdearchivos = arrayDeArchivos(`${route}\\${element}`);
-
+    arrayPath.forEach((file) => {
+      const arrayderutasdearchivos = arrayDeArchivos(path.join(route, file));
       newarray = newarray.concat(arrayderutasdearchivos);
     });
   }
   return newarray;
 };
+export const provisionalDeboBorrarlo = arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba');
 
-console.log(arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba\\documento1.txt'));
+
+export const filtrarArchivosMd = (router) => {
+  const variableFiltrado = router.filter(route => path.extname(route) === '.md');
+  return variableFiltrado;
+};
+
+// const datodearraydemdBorrar = filtrarArchivosMd(provisionalDeboBorrarlo);
+
+export const abrirArchivoMdYcoleccionarLinks = (arrfilemd) => {
+  let arrayDelContenido = [];
+  arrfilemd.forEach((element) => {
+    const leerFile = fs.readFileSync(element, 'utf8');
+    arrayDelContenido = arrayDelContenido.concat(leerFile);
+  });
+  return arrayDelContenido;
+};
+
+export const expresionRegularQueFiltraSoloLinks = () => {
+
+};
+// console.log(abrirArchivoMdYcoleccionarLinks(datodearraydemdBorrar));
