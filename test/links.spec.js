@@ -1,6 +1,7 @@
 import {
-  rutaRelativa, arrayDeArchivos, filtrarArchivosMd, abrirArchivoMdYcoleccionarLinks, expresionRegularQueFiltraSoloLinks,
-} from '../modules/links';
+  rutaRelativa, arrayDeArchivos, filtrarArchivosMd, abrirArchivoMdYcoleccionarLinks,
+  expresionRegularQueFiltraSoloLinks,
+} from '../lib/modules/links';
 
 const output = [
   'C:\\Users\\Laboratoria\\Documents\\prueba\\documento1.txt',

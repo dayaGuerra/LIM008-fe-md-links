@@ -22,7 +22,7 @@ export const arrayDeArchivos = (route) => {
   }
   return newarray;
 };
-export const provisionalDeboBorrarlo = arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\prueba');
+const provisionalDeboBorrarlo = arrayDeArchivos('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba');
 
 
 export const filtrarArchivosMd = (router) => {
@@ -30,7 +30,7 @@ export const filtrarArchivosMd = (router) => {
   return variableFiltrado;
 };
 
-// const datodearraydemdBorrar = filtrarArchivosMd(provisionalDeboBorrarlo);
+export const datodearraydemdBorrar = filtrarArchivosMd(provisionalDeboBorrarlo);
 
 export const abrirArchivoMdYcoleccionarLinks = (arrfilemd) => {
   let arrayDelContenido = [];
@@ -41,7 +41,21 @@ export const abrirArchivoMdYcoleccionarLinks = (arrfilemd) => {
   return arrayDelContenido;
 };
 
-export const expresionRegularQueFiltraSoloLinks = () => {
-
+export const expresionRegularQueFiltraSoloLinks = (stringDeContenidoMd) => {
+  const regex1 = RegExp(/^\[(.*)\]\((.+)\)/gm);
+  const arrayDeObjData = [];
+  let array1 = regex1.exec(stringDeContenidoMd);
+  while (array1 !== null) {
+    const objetoData = {
+      texto: array1[1],
+      link: array1[2],
+    };
+    arrayDeObjData.push(objetoData);
+    array1 = regex1.exec(stringDeContenidoMd);
+  }
+  return arrayDeObjData;
 };
-// console.log(abrirArchivoMdYcoleccionarLinks(datodearraydemdBorrar));
+
+const textodearchivoMd = abrirArchivoMdYcoleccionarLinks(datodearraydemdBorrar);
+
+export const objetoDeLinks = expresionRegularQueFiltraSoloLinks(textodearchivoMd);
