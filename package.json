@@ -11,7 +11,8 @@
   "license": "MIT",
   "scripts": {
     "eslint": "eslint --ext .js LIB",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "build": "babel lib -d src"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -28,5 +29,8 @@
     "jest": "^24.1.0",
     "nodemon": "^1.18.10",
     "regenerator-runtime": "^0.13.1"
+  },
+  "dependencies": {
+    "node-fetch": "^2.3.0"
   }
 }
