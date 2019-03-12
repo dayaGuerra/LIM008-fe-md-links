@@ -3,7 +3,7 @@ import {
   expresionRegularQueFiltraSoloLinks,
 } from './modules/links';
 
-export const unionDeFunciones = (router) => {
+export default (router) => {
   const uno = rutaRelativa(router);
   const dos = arrayDeArchivos(uno);
   const tres = filtrarArchivosMd(dos);

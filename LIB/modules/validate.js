@@ -1,11 +1,9 @@
-import { unionDeFunciones } from '../mdlinks';
+import unionDeFunciones from '../mdlinks';
 
 const fetch = require('node-fetch');
 
 const validarUrl = (arraydeobjetos) => {
   const arrlinks = unionDeFunciones(arraydeobjetos);
-  console.log(arrlinks);
-
   const evaluarLinks = arrlinks.map(propiedadDeObj => new Promise((resolve) => {
     const propiedad = Object.assign(propiedadDeObj);
     fetch(propiedad.link)
@@ -29,6 +27,7 @@ const validarUrl = (arraydeobjetos) => {
   return Promise.all(evaluarLinks);
 };
 
+export default validarUrl;
 
 validarUrl('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba')
   .then(res => console.log(res))
