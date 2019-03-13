@@ -1,16 +1,22 @@
 "use strict";
 
-var _mdlinks = require("../mdlinks");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _mdlinks = _interopRequireDefault(require("../mdlinks"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const fetch = require('node-fetch');
 
 const validarUrl = arraydeobjetos => {
-  const arrlinks = (0, _mdlinks.unionDeFunciones)(arraydeobjetos);
-  console.log(arrlinks);
+  const arrlinks = (0, _mdlinks.default)(arraydeobjetos);
   const evaluarLinks = arrlinks.map(propiedadDeObj => new Promise(resolve => {
     const propiedad = Object.assign(propiedadDeObj);
     fetch(propiedad.link).then(res => {
-      if (propiedad.status >= 200 && propiedad.status < 399) {
+      if (res.status > 199 && res.status < 399) {
         propiedad.status = res.status;
         propiedad.statusText = res.statusText;
         resolve(propiedad);
@@ -19,7 +25,7 @@ const validarUrl = arraydeobjetos => {
         propiedad.statusText = 'fail';
         resolve(propiedad);
       }
-    }).catch(error => {
+    }).catch(() => {
       propiedad.status = 'no existe';
       propiedad.statusText = 'fail';
       resolve(propiedad);
@@ -28,4 +34,6 @@ const validarUrl = arraydeobjetos => {
   return Promise.all(evaluarLinks);
 };
 
+var _default = validarUrl;
+exports.default = _default;
 validarUrl('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba').then(res => console.log(res)).catch(res => console.log(res));

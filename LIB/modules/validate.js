@@ -8,7 +8,7 @@ const validarUrl = (arraydeobjetos) => {
     const propiedad = Object.assign(propiedadDeObj);
     fetch(propiedad.link)
       .then((res) => {
-        if (propiedad.status >= 200 && propiedad.status < 399) {
+        if (res.status > 199 && res.status < 399) {
           propiedad.status = res.status;
           propiedad.statusText = res.statusText;
           resolve(propiedad);
@@ -18,7 +18,7 @@ const validarUrl = (arraydeobjetos) => {
           resolve(propiedad);
         }
       })
-      .catch((error) => {
+      .catch(() => {
         propiedad.status = 'no existe';
         propiedad.statusText = 'fail';
         resolve(propiedad);
@@ -28,7 +28,3 @@ const validarUrl = (arraydeobjetos) => {
 };
 
 export default validarUrl;
-
-validarUrl('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba')
-  .then(res => console.log(res))
-  .catch(res => console.log(res));

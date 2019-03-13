@@ -33,7 +33,6 @@ const arrayDeArchivos = route => {
 };
 
 exports.arrayDeArchivos = arrayDeArchivos;
-console.log(arrayDeArchivos('C://Users//Laboratoria//Documents//Proyecto//LIM008-fe-md-links//test//prueba'));
 
 const filtrarArchivosMd = arr => {
   const variableFiltrado = arr.filter(route => path.extname(route) === '.md');
@@ -61,7 +60,7 @@ const expresionRegularQueFiltraSoloLinks = (stringDeContenidoMd, rutaObj) => {
   while (array1 !== null) {
     const objetoData = {
       ruta: rutaObj,
-      texto: array1[1],
+      texto: array1[1].substring(0, 50),
       link: array1[2]
     };
     arrayDeObjData.push(objetoData);

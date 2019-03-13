@@ -3,11 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.unionDeFunciones = void 0;
+exports.default = void 0;
 
 var _links = require("./modules/links");
 
-const unionDeFunciones = router => {
+var _default = router => {
   const uno = (0, _links.rutaRelativa)(router);
   const dos = (0, _links.arrayDeArchivos)(uno);
   const tres = (0, _links.filtrarArchivosMd)(dos);
@@ -17,4 +17,4 @@ const unionDeFunciones = router => {
 }; // console.log(newLocal('C://Users//Laboratoria//Documents//Proyecto//LIM008-fe-md-links//test//prueba'));
 
 
-exports.unionDeFunciones = unionDeFunciones;
+exports.default = _default;
