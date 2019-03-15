@@ -4,27 +4,31 @@ const fetch = require('node-fetch');
 
 const validarUrl = (arraydeobjetos) => {
   const arrlinks = linksDeRutas(arraydeobjetos);
-  const evaluarLinks = arrlinks.map(propiedadDeObj => new Promise((resolve) => {
-    const propiedad = Object.assign(propiedadDeObj);
+  const evaluarLinks = arrlinks.map(propiedad => new Promise((resolve) => {
     fetch(propiedad.link)
       .then((res) => {
         if (res.status > 199 && res.status < 399) {
-          propiedad.status = res.status;
-          propiedad.statusText = res.statusText;
-          resolve(propiedad);
+          resolve({
+            ...propiedad,
+            status: res.status,
+            statusText: res.statusText,
+          });
         } else {
-          propiedad.status = res.status;
-          propiedad.statusText = 'fail';
-          resolve(propiedad);
+          resolve({
+            ...propiedad,
+            status: res.status,
+            statusText: 'fail',
+          });
         }
       })
       .catch(() => {
-        propiedad.status = 'no existe';
-        propiedad.statusText = 'fail';
-        resolve(propiedad);
+        resolve({
+          ...propiedad,
+          status: 'no existe',
+          statusText: 'fail',
+        });
       });
   }));
   return Promise.all(evaluarLinks);
 };
-
 export default validarUrl;

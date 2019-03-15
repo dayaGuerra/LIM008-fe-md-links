@@ -7,8 +7,8 @@ describe('validarUrl', () => {
     expect(typeof validarUrl).toBe('function');
   });
   it('debería de devolver un objeto con las propiedades status y statustext', () => {
-    validarUrl(`${process.cwd()}\\test\\prueba`).then((status) => {
-      expect(status).toEqual([{
+    return validarUrl(`${process.cwd()}\\test\\prueba`).then((status) => {
+      const result = [{
         ruta:
         path.join(`${process.cwd()}`, '\\test\\prueba'),
         texto: 'hola',
@@ -39,7 +39,8 @@ describe('validarUrl', () => {
         link: 'https://nodejs.org/ojkko/',
         status: 404,
         statusText: 'fail',
-      }]);
+      }];
+      expect(status).toEqual(result);
     });
   });
 });

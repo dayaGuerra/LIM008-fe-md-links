@@ -1,5 +1,5 @@
 import { funcionStats, statsRotos } from '../lib/modules/stats';
-import linksDeRutas from '../lib/mdlinks';
+import linksDeRutas from '../lib/modules/joinLink';
 
 const path = require('path');
 
@@ -8,7 +8,9 @@ describe('funcionstats', () => {
     expect(typeof funcionStats).toBe('function');
   });
   it('debería devolver un objeto con dos propiedades, totales y unicos', () => {
-    expect(funcionStats(linksDeRutas(`${process.cwd()}\\test\\prueba`)))
+    const array = linksDeRutas(path.join(`${process.cwd()}`, '\\test\\prueba'));
+    console.log(array);
+    expect(funcionStats(array))
       .toEqual({ total: 4, unicos: 1 });
   });
 });

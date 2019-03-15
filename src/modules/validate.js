@@ -5,14 +5,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _mdlinks = _interopRequireDefault(require("../mdlinks"));
+var _joinLink = _interopRequireDefault(require("./joinLink"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 const fetch = require('node-fetch');
 
 const validarUrl = arraydeobjetos => {
-  const arrlinks = (0, _mdlinks.default)(arraydeobjetos);
+  const arrlinks = (0, _joinLink.default)(arraydeobjetos);
   const evaluarLinks = arrlinks.map(propiedadDeObj => new Promise(resolve => {
     const propiedad = Object.assign(propiedadDeObj);
     fetch(propiedad.link).then(res => {
@@ -34,6 +34,6 @@ const validarUrl = arraydeobjetos => {
   return Promise.all(evaluarLinks);
 };
 
-var _default = validarUrl; // validarUrl('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba').then(response => console.log(response));
-
+validarUrl(`${process.cwd()}\\test\\prueba`).then(result => console.log(result)).catch(result => console.log(result));
+var _default = validarUrl;
 exports.default = _default;
