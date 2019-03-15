@@ -68,25 +68,25 @@ describe('expresionRegularQueFiltraSoloLinks', () => {
   });
   it('debería de retornar un objeto con las siguientes propiedades ruta, texto, url.', () => {
     expect(expresionRegularQueFiltraSoloLinks(['## Título\r\n[hola](https://nodejs.org/en/)\r\n### Subtítulo\r\nAl texto en Markdown puedes añadirle formato como **negrita** \r\n![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)\r\n[Node.js](https://nodejsjoven.org/en/)\r\n[](https://nodejs.org/ojkko/)',
-      '## Título\r\n[](https://nodejs.org/ojkko/)',
-      rutaRelativa(path.join(`${process.cwd()}`, '\\test\\prueba\\prueba1\\documento4.md'))]))
+      '## Título\r\n[](https://nodejs.org/ojkko/)'],
+    rutaRelativa(path.join(`${process.cwd()}`, '\\test\\prueba'))))
       .toEqual([{
-        ruta: undefined,
+        ruta: path.join(`${process.cwd()}`, '\\test\\prueba'),
         texto: 'hola',
         link: 'https://nodejs.org/en/',
       },
       {
-        ruta: undefined,
+        ruta: path.join(`${process.cwd()}`, '\\test\\prueba'),
         texto: 'Node.js',
         link: 'https://nodejsjoven.org/en/',
       },
       {
-        ruta: undefined,
+        ruta: path.join(`${process.cwd()}`, '\\test\\prueba'),
         texto: '',
         link: 'https://nodejs.org/ojkko/',
       },
       {
-        ruta: undefined,
+        ruta: path.join(`${process.cwd()}`, '\\test\\prueba'),
         texto: '',
         link: 'https://nodejs.org/ojkko/',
       }]);

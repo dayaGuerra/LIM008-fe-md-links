@@ -1,9 +1,9 @@
-import unionDeFunciones from '../mdlinks';
+import linksDeRutas from './joinLink';
 
 const fetch = require('node-fetch');
 
 const validarUrl = (arraydeobjetos) => {
-  const arrlinks = unionDeFunciones(arraydeobjetos);
+  const arrlinks = linksDeRutas(arraydeobjetos);
   const evaluarLinks = arrlinks.map(propiedadDeObj => new Promise((resolve) => {
     const propiedad = Object.assign(propiedadDeObj);
     fetch(propiedad.link)

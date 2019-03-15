@@ -34,6 +34,6 @@ const validarUrl = arraydeobjetos => {
   return Promise.all(evaluarLinks);
 };
 
-var _default = validarUrl;
+var _default = validarUrl; // validarUrl('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba').then(response => console.log(response));
+
 exports.default = _default;
-validarUrl('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba').then(res => console.log(res)).catch(res => console.log(res));
