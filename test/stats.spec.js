@@ -3,55 +3,56 @@ import linksDeRutas from '../lib/modules/joinLink';
 
 const path = require('path');
 
-describe('funcionstats', () => {
-  it('debería de ser una función', () => {
-    expect(typeof funcionStats).toBe('function');
+describe('stats', () => {
+  describe('funcionstats', () => {
+    it('debería de ser una función', () => {
+      expect(typeof funcionStats).toBe('function');
+    });
+    it('debería devolver un objeto con dos propiedades, totales y unicos', () => {
+      const link = linksDeRutas('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba');
+      expect(funcionStats(link))
+        .toEqual({ total: 4, unicos: 1 });
+    });
   });
-  it('debería devolver un objeto con dos propiedades, totales y unicos', () => {
-    const array = linksDeRutas(path.join(`${process.cwd()}`, '\\test\\prueba'));
-    console.log(array);
-    expect(funcionStats(array))
-      .toEqual({ total: 4, unicos: 1 });
-  });
-});
 
-describe('statsRotos', () => {
-  it('debería de ser una función', () => {
-    expect(typeof statsRotos).toBe('function');
-  });
-  it.only('debería devolver el numero total de links rotos', () => {
-    const arrLinks = [{
-      ruta:
+  describe('statsRotos', () => {
+    it('debería de ser una función', () => {
+      expect(typeof statsRotos).toBe('function');
+    });
+    it('debería devolver el numero total de links rotos', () => {
+      const arrLinks = [{
+        ruta:
       path.join(`${process.cwd()}`, '\\test\\prueba'),
-      texto: 'hola',
-      link: 'https://nodejs.org/en/',
-      status: 200,
-      statusText: 'OK',
-    },
-    {
-      ruta:
+        texto: 'hola',
+        link: 'https://nodejs.org/en/',
+        status: 200,
+        statusText: 'OK',
+      },
+      {
+        ruta:
       path.join(`${process.cwd()}`, '\\test\\prueba'),
-      texto: 'Node.js',
-      link: 'https://nodejsjoven.org/en/',
-      status: 'no existe',
-      statusText: 'fail',
-    },
-    {
-      ruta:
+        texto: 'Node.js',
+        link: 'https://nodejsjoven.org/en/',
+        status: 'no existe',
+        statusText: 'fail',
+      },
+      {
+        ruta:
       path.join(`${process.cwd()}`, '\\test\\prueba'),
-      texto: '',
-      link: 'https://nodejs.org/ojkko/',
-      status: 404,
-      statusText: 'fail',
-    },
-    {
-      ruta:
+        texto: '',
+        link: 'https://nodejs.org/ojkko/',
+        status: 404,
+        statusText: 'fail',
+      },
+      {
+        ruta:
       path.join(`${process.cwd()}`, '\\test\\prueba'),
-      texto: '',
-      link: 'https://nodejs.org/ojkko/',
-      status: 404,
-      statusText: 'fail',
-    }];
-    expect(statsRotos(arrLinks)).toEqual(3);
+        texto: '',
+        link: 'https://nodejs.org/ojkko/',
+        status: 404,
+        statusText: 'fail',
+      }];
+      expect(statsRotos(arrLinks)).toEqual(3);
+    });
   });
 });
