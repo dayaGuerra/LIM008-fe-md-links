@@ -35,7 +35,7 @@ const arrayDeArchivos = route => {
 exports.arrayDeArchivos = arrayDeArchivos;
 
 const filtrarArchivosMd = arr => {
-  const variableFiltrado = arr.filter(route => path.extname(route) === '.md');
+  const variableFiltrado = arr.filter(route => path.extname(route).toLowerCase() === '.md');
   return variableFiltrado;
 };
 
