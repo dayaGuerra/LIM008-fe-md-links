@@ -14,19 +14,24 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // const options = {
 //   validate: false,
 // };
-const mdLinks = (path, options = {
-  validate: false
-}) => new Promise((resolve, reject) => {
-  if (typeof path !== 'string') {
-    reject(new TypeError('Esperaba un valor string'));
-  }
+var mdLinks = function mdLinks(path) {
+  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+    validate: false
+  };
+  return new Promise(function (resolve, reject) {
+    if (typeof path !== 'string') {
+      reject(new TypeError('Esperaba un valor string'));
+    }
 
-  if (options.validate) {
-    (0, _validate.default)(path).then(response => resolve(response));
-  } else {
-    resolve((0, _joinLink.default)(path));
-  }
-});
+    if (options.validate) {
+      (0, _validate.default)(path).then(function (response) {
+        return resolve(response);
+      });
+    } else {
+      resolve((0, _joinLink.default)(path));
+    }
+  });
+};
 
 var _default = mdLinks;
 exports.default = _default;
