@@ -7,12 +7,12 @@ exports.default = void 0;
 
 var _links = require("./links");
 
-const linksDeRutas = router => {
-  const ruta = (0, _links.rutaRelativa)(router);
-  const archivos = (0, _links.arrayDeArchivos)(ruta);
-  const archivoMd = (0, _links.filtrarArchivosMd)(archivos);
-  const leerArchivo = (0, _links.abrirArchivoMdYcoleccionarLinks)(archivoMd);
-  const links = (0, _links.expresionRegularQueFiltraSoloLinks)(leerArchivo, ruta);
+var linksDeRutas = function linksDeRutas(router) {
+  var ruta = (0, _links.rutaRelativa)(router);
+  var archivos = (0, _links.arrayDeArchivos)(ruta);
+  var archivoMd = (0, _links.filtrarArchivosMd)(archivos);
+  var leerArchivo = (0, _links.abrirArchivoMdYcoleccionarLinks)(archivoMd);
+  var links = (0, _links.expresionRegularQueFiltraSoloLinks)(leerArchivo, ruta);
   return links;
 };
 

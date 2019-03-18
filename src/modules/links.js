@@ -5,26 +5,26 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.expresionRegularQueFiltraSoloLinks = exports.abrirArchivoMdYcoleccionarLinks = exports.filtrarArchivosMd = exports.arrayDeArchivos = exports.rutaRelativa = void 0;
 
-const path = require('path');
+var path = require('path');
 
-const fs = require('fs');
+var fs = require('fs');
 
-const rutaRelativa = pathrel => {
-  const absolut = path.resolve(pathrel);
+var rutaRelativa = function rutaRelativa(pathrel) {
+  var absolut = path.resolve(pathrel);
   return absolut;
 };
 
 exports.rutaRelativa = rutaRelativa;
 
-const arrayDeArchivos = route => {
-  let newarray = [];
+var arrayDeArchivos = function arrayDeArchivos(route) {
+  var newarray = [];
 
   if (fs.lstatSync(route).isFile() === true) {
     newarray.push(route);
   } else {
-    const arrayPath = fs.readdirSync(route);
-    arrayPath.forEach(file => {
-      const arrayderutasdearchivos = arrayDeArchivos(path.join(route, file));
+    var arrayPath = fs.readdirSync(route);
+    arrayPath.forEach(function (file) {
+      var arrayderutasdearchivos = arrayDeArchivos(path.join(route, file));
       newarray = newarray.concat(arrayderutasdearchivos);
     });
   }
@@ -34,17 +34,19 @@ const arrayDeArchivos = route => {
 
 exports.arrayDeArchivos = arrayDeArchivos;
 
-const filtrarArchivosMd = arr => {
-  const variableFiltrado = arr.filter(route => path.extname(route).toLowerCase() === '.md');
+var filtrarArchivosMd = function filtrarArchivosMd(arr) {
+  var variableFiltrado = arr.filter(function (route) {
+    return path.extname(route).toLowerCase() === '.md';
+  });
   return variableFiltrado;
 };
 
 exports.filtrarArchivosMd = filtrarArchivosMd;
 
-const abrirArchivoMdYcoleccionarLinks = arrfile => {
-  let arrayDelContenido = [];
-  arrfile.forEach(element => {
-    const leerFile = fs.readFileSync(element, 'utf8');
+var abrirArchivoMdYcoleccionarLinks = function abrirArchivoMdYcoleccionarLinks(arrfile) {
+  var arrayDelContenido = [];
+  arrfile.forEach(function (element) {
+    var leerFile = fs.readFileSync(element, 'utf8');
     arrayDelContenido = arrayDelContenido.concat(leerFile);
   });
   return arrayDelContenido;
@@ -52,13 +54,13 @@ const abrirArchivoMdYcoleccionarLinks = arrfile => {
 
 exports.abrirArchivoMdYcoleccionarLinks = abrirArchivoMdYcoleccionarLinks;
 
-const expresionRegularQueFiltraSoloLinks = (stringDeContenidoMd, rutaObj) => {
-  const regex1 = RegExp(/^\[(.*)\]\((.+)\)/gm);
-  const arrayDeObjData = [];
-  let array1 = regex1.exec(stringDeContenidoMd);
+var expresionRegularQueFiltraSoloLinks = function expresionRegularQueFiltraSoloLinks(stringDeContenidoMd, rutaObj) {
+  var regex1 = RegExp(/^\[(.*)\]\((.+)\)/gm);
+  var arrayDeObjData = [];
+  var array1 = regex1.exec(stringDeContenidoMd);
 
   while (array1 !== null) {
-    const objetoData = {
+    var objetoData = {
       ruta: rutaObj,
       texto: array1[1].substring(0, 50),
       link: array1[2]
