@@ -2,7 +2,7 @@
   "name": "md-links",
   "version": "1.0.0",
   "description": "md-links",
-  "main": "./src/mdlinks.js",
+  "main": "src/mdlinks.js",
   "keywords": [
     "javascript",
     "npm",
@@ -11,7 +11,7 @@
   "license": "MIT",
   "author": "Dyanara Riega",
   "bin": {
-    "md-links": "./src/cli.js"
+    "md-links": "src/cli.js"
   },
   "repository": {
     "type": "git",
