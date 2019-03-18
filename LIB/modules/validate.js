@@ -1,7 +1,7 @@
 import linksDeRutas from './joinLink';
 
 const fetch = require('node-fetch');
-
+// funcion para validar las peticiones HTTP
 const validarUrl = (arraydeobjetos) => {
   const arrlinks = linksDeRutas(arraydeobjetos);
   const evaluarLinks = arrlinks.map(propiedad => new Promise((resolve) => {
