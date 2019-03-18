@@ -14,17 +14,6 @@ var _validate = _interopRequireDefault(require("./modules/validate"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _toArray(arr) { return _arrayWithHoles(arr) || _iterableToArray(arr) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
-
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-var _process$argv = _toArray(process.argv),
-    args = _process$argv.slice(2);
-
 var arg = process.argv.slice(2);
 
 var cli = function cli() {
@@ -63,4 +52,3 @@ var cli = function cli() {
 var _default = cli;
 exports.default = _default;
 cli();
-console.log('hola');
