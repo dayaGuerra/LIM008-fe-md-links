@@ -7,6 +7,7 @@ export const rutaRelativa = (pathrel) => {
   return absolut;
 };
 
+
 export const arrayDeArchivos = (route) => {
   let newarray = [];
   if (fs.lstatSync(route).isFile() === true) {
