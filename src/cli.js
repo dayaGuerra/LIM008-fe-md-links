@@ -17,6 +17,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var arg = process.argv.slice(2);
 
 var cli = function cli() {
+  if (arg.length === 0) {
+    console.log('Ingresa una ruta valida');
+  }
+
   if (arg.length === 3) {
     // respuesta stats + validate
     if (arg[1] === '--stats' && arg[2] === '--validate') {
@@ -42,7 +46,9 @@ var cli = function cli() {
         });
       });
     }
-  } else {
+  }
+
+  if (arg.length === 1) {
     (0, _joinLink.default)(arg[0]).forEach(function (ele) {
       return console.log("".concat(ele.ruta, " ").concat(ele.link, " ").concat(ele.texto));
     });
