@@ -13,7 +13,7 @@
 - Muestra el total de links encontrados y los links unicos hallados `--stats`
 - Muestra el total de links rotos encontrados`--stats -- validate`
 
-
+[Diagrama de flujo](https://bit.ly/2HFL1J0);
 
 ## Instalación
 
@@ -27,10 +27,45 @@ $ npm install dayaGuerra/LIM008-fe-md-links
 $ md-links <path-to-file> [options]
 ```
 
+## API
+
+```js
+const mdLinks = (path, options = { validate: false }) => new Promise((resolve, reject) => {
+  if (typeof path !== 'string') {
+    reject(new TypeError('Esperaba un valor string'));
+  } if (options.validate) {
+    validarUrl(path).then(response => resolve(response))
+      .catch(error => reject(error));
+  } else {
+    resolve(linksDeRutas(path));
+  }
+});
+```
+
+### mdLinks(path, options)
+#### Argumentos
+
+- `path` - Ruta absoluta o relativa al archivo o directorio. Si la ruta pasada es relativa, debe resolverse como relativa al directorio desde donde se invoca node - current working directory).
+- `options` - Un objeto con las siguientes propiedades:
+    - `validate` - Booleano que determina si se desea validar los links encontrados.
+
+#### Retorno
+
+Retorna un `Object` con:
+
+La función retorna una promesa (`Promise`) que resuelve un arreglo
+(`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
+las siguientes propiedades:
+
+- `Text` - Texto que aparece dentro del link.
+- `href` - Url encontrada.
+- `file` - Ruta del archivo donde se encontro el link.
+
+
+### CLI (Command Line Interface - Interfaz de Línea de Comando)
+
 ```js
 #!/usr/bin/env node
-
-const [,, ...args] = process.argv;
 const arg = process.argv.slice(2);
 
 const cli = () => {
@@ -61,33 +96,7 @@ const cli = () => {
 cli();
 ```
 
-
-## API
-
-### mdLinks(path, options)
-#### Argumentos
-
-- `path` - Ruta absoluta o relativa al archivo o directorio. Si la ruta pasada es relativa, debe resolverse como relativa al directorio desde donde se invoca node - current working directory).
-- `options` - Un objeto con las siguientes propiedades:
-    - `validate` - Booleano que determina si se desea validar los links encontrados.
-
-#### Retorno
-
-Retorna un `Object` con:
-
-La función retorna una promesa (`Promise`) que resuelve un arreglo
-(`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
-las siguientes propiedades:
-
-- `Text` - Texto que aparece dentro del link.
-- `href` - Url encontrada.
-- `file` - Ruta del archivo donde se encontro el link.
-
-
-### CLI (Command Line Interface - Interfaz de Línea de Comando)
-
-
-`md-links <path-to-file> [options]`
+`_default <path-to-file> [options]`
 
 El comportamiento por defecto no valida URLs
 
