@@ -1,7 +1,7 @@
 {
   "name": "md-links",
   "version": "1.0.0",
-  "description": "mdlinks",
+  "description": "md-links",
   "main": "./src/mdlinks.js",
   "keywords": [
     "javascript",
