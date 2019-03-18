@@ -1,6 +1,6 @@
 # Markdown Links
 
-> CLI app 
+> CLI y API
 
 
 
@@ -43,7 +43,7 @@ const cli = () => {
       });
     }
   }
-  // respuesta statss o validate
+  // respuesta stats o validate
   if (arg.length === 2) {
     if (arg[1] === '--stats') {
       const links = linksDeRutas(arg[0]);
