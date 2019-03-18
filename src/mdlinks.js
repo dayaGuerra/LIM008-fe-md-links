@@ -23,6 +23,8 @@ var mdLinks = function mdLinks(path) {
     if (options.validate) {
       (0, _validate.default)(path).then(function (response) {
         return resolve(response);
+      }).catch(function (error) {
+        return reject(error);
       });
     } else {
       resolve((0, _joinLink.default)(path));
