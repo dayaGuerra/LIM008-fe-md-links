@@ -18,7 +18,7 @@
 ## Instalación
 
 ```
-$ npm install <github-user>/md-links
+$ npm install dayaGuerra/LIM008-fe-md-links
 
 ```
 ## Usage
