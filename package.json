@@ -13,7 +13,7 @@
   "bin": {
     "md-links": "./src/cli.js"
   },
-  "repository":{
+  "repository": {
     "type": "git",
     "url": "https://github.com/dayaGuerra/LIM008-fe-md-links.git"
   },

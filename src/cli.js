@@ -63,3 +63,4 @@ var cli = function cli() {
 var _default = cli;
 exports.default = _default;
 cli();
+console.log('hola');
