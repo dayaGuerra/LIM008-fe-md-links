@@ -11,9 +11,6 @@ var _joinLink = _interopRequireDefault(require("./modules/joinLink"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const options = {
-//   validate: false,
-// };
 var mdLinks = function mdLinks(path) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
     validate: false
