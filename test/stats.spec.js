@@ -9,7 +9,7 @@ describe('stats', () => {
       expect(typeof funcionStats).toBe('function');
     });
     it('debería devolver un objeto con dos propiedades, totales y unicos', () => {
-      const link = linksDeRutas('C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test\\prueba');
+      const link = linksDeRutas(path.resolve(`${process.cwd()}\\test\\prueba`));
       expect(funcionStats(link))
         .toEqual({ total: 4, unicos: 1 });
     });
@@ -22,7 +22,7 @@ describe('stats', () => {
     it('debería devolver el numero total de links rotos', () => {
       const arrLinks = [{
         ruta:
-      path.join(`${process.cwd()}`, '\\test\\prueba'),
+      path.resolve(`${process.cwd()}\\test\\prueba`),
         texto: 'hola',
         link: 'https://nodejs.org/en/',
         status: 200,
@@ -30,7 +30,7 @@ describe('stats', () => {
       },
       {
         ruta:
-      path.join(`${process.cwd()}`, '\\test\\prueba'),
+      path.resolve(`${process.cwd()}\\test\\prueba`),
         texto: 'Node.js',
         link: 'https://nodejsjoven.org/en/',
         status: 'no existe',
@@ -38,7 +38,7 @@ describe('stats', () => {
       },
       {
         ruta:
-      path.join(`${process.cwd()}`, '\\test\\prueba'),
+      path.resolve(`${process.cwd()}\\test\\prueba`),
         texto: '',
         link: 'https://nodejs.org/ojkko/',
         status: 404,
@@ -46,7 +46,7 @@ describe('stats', () => {
       },
       {
         ruta:
-      path.join(`${process.cwd()}`, '\\test\\prueba'),
+      path.resolve(`${process.cwd()}\\test\\prueba`),
         texto: '',
         link: 'https://nodejs.org/ojkko/',
         status: 404,
