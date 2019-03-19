@@ -3,6 +3,7 @@ import {
   expresionRegularQueFiltraSoloLinks,
 } from '../lib/modules/links';
 
+
 const path = require('path');
 
 describe('rutaRelativa', () => {
