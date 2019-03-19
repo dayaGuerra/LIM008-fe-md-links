@@ -96,7 +96,11 @@ const cli = () => {
 cli();
 ```
 
-`_default <path-to-file> [options]`
+`md-link <path-to-file>`
+
+const mdlink = require('md-link').default;
+
+mdlink('./alguna-ruta')
 
 El comportamiento por defecto no valida URLs
 
