@@ -36,4 +36,8 @@ var mdLinks = function mdLinks(route) {
 
 var _default = mdLinks;
 exports.default = _default;
-console.log(mdLinks(path.resolve("".concat(process.cwd(), "/test"))));
+mdLinks(path.resolve("".concat(process.cwd(), "/test")), {
+  validate: true
+}).then(function (response) {
+  return console.log(response);
+});
