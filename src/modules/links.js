@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.expresionRegularQueFiltraSoloLinks = exports.abrirArchivoMdYcoleccionarLinks = exports.filtrarArchivosMd = exports.arrayDeArchivos = exports.rutaRelativa = void 0;
+exports.expresionRegularQueFiltraSoloLinks = exports.filtrarArchivosMd = exports.arrayDeArchivos = exports.rutaRelativa = void 0;
 
 var path = require('path');
 
@@ -43,27 +43,16 @@ var filtrarArchivosMd = function filtrarArchivosMd(arr) {
 
 exports.filtrarArchivosMd = filtrarArchivosMd;
 
-var abrirArchivoMdYcoleccionarLinks = function abrirArchivoMdYcoleccionarLinks(arrfile) {
-  var arrayDelContenido = [];
-  arrfile.forEach(function (element) {
-    var leerFile = fs.readFileSync(element, 'utf8');
-    arrayDelContenido = arrayDelContenido.concat(leerFile);
-  });
-  return arrayDelContenido;
-};
-
-exports.abrirArchivoMdYcoleccionarLinks = abrirArchivoMdYcoleccionarLinks;
-
 var expresionRegularQueFiltraSoloLinks = function expresionRegularQueFiltraSoloLinks(stringDeContenidoMd, rutaObj) {
-  var regex1 = RegExp(/^\[(.*)\]\((.+)\)/gm);
+  var regex1 = RegExp(/(^|[!^])\[(.*)\]\((.+)\)/gm);
   var arrayDeObjData = [];
   var array1 = regex1.exec(stringDeContenidoMd);
 
   while (array1 !== null) {
     var objetoData = {
       ruta: rutaObj,
-      texto: array1[1].substring(0, 50),
-      link: array1[2]
+      texto: array1[2].substring(0, 50),
+      link: array1[3]
     };
     arrayDeObjData.push(objetoData);
     array1 = regex1.exec(stringDeContenidoMd);

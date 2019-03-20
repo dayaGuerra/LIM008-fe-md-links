@@ -23,7 +23,7 @@ var cli = function cli() {
 
   if (arg.length === 3) {
     // respuesta stats + validate
-    if (arg[1] === '--stats' && arg[2] === '--validate') {
+    if (arg[1] === '--stats' && arg[2] === '--validate' || arg[2] === '--validate' && arg[1] === '--stats') {
       var links = (0, _joinLink.default)(arg[0]);
       (0, _validate.default)(arg[0]).then(function (response) {
         console.log(" Total:  ".concat((0, _stats.funcionStats)(links).total, "\n unique: ").concat((0, _stats.funcionStats)(links).unicos, "\n Broken: ").concat((0, _stats.statsRotos)(response)));

@@ -1,6 +1,6 @@
 import mdLinks from '../lib/mdlinks';
 
-const path = require('path');
+// const path = require('path');
 
 describe('mdlinks', () => {
   it('debería de ser una función', () => {
