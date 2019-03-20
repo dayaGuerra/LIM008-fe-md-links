@@ -22,6 +22,5 @@ var linksDeRutas = function linksDeRutas(router) {
   return arrayDelContenido;
 };
 
-console.log(linksDeRutas("C:\\Users\\Laboratoria\\Documents\\Proyecto\\LIM008-fe-md-links\\test"));
 var _default = linksDeRutas;
 exports.default = _default;

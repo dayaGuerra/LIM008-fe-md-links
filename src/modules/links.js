@@ -44,7 +44,7 @@ var filtrarArchivosMd = function filtrarArchivosMd(arr) {
 exports.filtrarArchivosMd = filtrarArchivosMd;
 
 var expresionRegularQueFiltraSoloLinks = function expresionRegularQueFiltraSoloLinks(stringDeContenidoMd, rutaObj) {
-  var regex1 = RegExp(/(^|[!^])\[(.*)\]\((.+)\)/gm);
+  var regex1 = RegExp(/(^|[^!])\[(.*)\]\((.+)\)/gm);
   var arrayDeObjData = [];
   var array1 = regex1.exec(stringDeContenidoMd);
 
