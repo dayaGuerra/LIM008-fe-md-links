@@ -11,8 +11,6 @@ var _joinLink = _interopRequireDefault(require("./modules/joinLink"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var path = require('path');
-
 var mdLinks = function mdLinks(route) {
   var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
     validate: false
@@ -36,8 +34,3 @@ var mdLinks = function mdLinks(route) {
 
 var _default = mdLinks;
 exports.default = _default;
-mdLinks(path.resolve("".concat(process.cwd(), "/test")), {
-  validate: true
-}).then(function (response) {
-  return console.log(response);
-});

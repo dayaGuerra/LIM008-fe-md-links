@@ -7,12 +7,14 @@ exports.expresionRegularQueFiltraSoloLinks = exports.filtrarArchivosMd = exports
 
 var path = require('path');
 
-var fs = require('fs');
+var fs = require('fs'); // Ruta relativa a absoluta
+
 
 var rutaRelativa = function rutaRelativa(pathrel) {
   var absolut = path.resolve(pathrel);
   return absolut;
-};
+}; // Array de archivos
+
 
 exports.rutaRelativa = rutaRelativa;
 
@@ -30,7 +32,8 @@ var arrayDeArchivos = function arrayDeArchivos(route) {
   }
 
   return newarray;
-};
+}; // Filtrar archivos
+
 
 exports.arrayDeArchivos = arrayDeArchivos;
 
@@ -39,7 +42,8 @@ var filtrarArchivosMd = function filtrarArchivosMd(arr) {
     return path.extname(route).toLowerCase() === '.md';
   });
   return variableFiltrado;
-};
+}; // extraer links en un objeto
+
 
 exports.filtrarArchivosMd = filtrarArchivosMd;
 
