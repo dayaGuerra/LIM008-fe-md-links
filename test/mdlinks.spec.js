@@ -44,8 +44,7 @@ describe('mdlinks', () => {
       link: 'https://nodejs.org/ojkko/',
       status: 404,
       statusText: 'fail',
-    }]))
-    .catch(err => err));
+    }])));
 
   it('deberia de ser un array de objetos sin los links validados', () => mdLinks(path.resolve(`${process.cwd()}/test`))
     .then((respuesta) => {
