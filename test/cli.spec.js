@@ -6,4 +6,7 @@ describe('mdlinks', () => {
   it('debería de ser una función', () => {
     expect(typeof cli).toBe('function');
   });
+  it('debería de ser una función', () => {
+    expect(cli()).toBe('function');
+  });
 });
